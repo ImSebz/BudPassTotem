@@ -22,7 +22,7 @@ class RegistroCodigos extends Component
     public function storePuntos(){        
         $this->validate([
             'codigo' => 'required|alpha_num:ascii',
-            'punto_entrega' => 'required|string'
+            // 'punto_entrega' => 'required|string'
         ]);
 
         if (RateLimiter::tooManyAttempts('send-message:'.Auth::user()->id, $perMinute = 5)) {
@@ -41,7 +41,7 @@ class RegistroCodigos extends Component
             $registroCodigo = new RegistroCodigo;
             $registroCodigo->codigo_id = $codigo->id;
             $registroCodigo->puntos_sumados = $codigo->referencia->puntos;
-            $registroCodigo->punto_entrega = $this->punto_entrega; 
+            $registroCodigo->punto_entrega = null; 
             $registroCodigo->user_id = Auth::user()->id; 
             $registroCodigo->save();
             
