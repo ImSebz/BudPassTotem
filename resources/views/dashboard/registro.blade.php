@@ -4,7 +4,7 @@
 @section('content')
     <div class="cont-main-registro-facturas-codigos">
         <div class="main-facturas-cont">
-            <div class="paso-cont">
+            {{-- <div class="paso-cont">
                 <div class="paso-facturas-movil">
                     <img class="paso-facturas-movil-img" src="{{ asset('assets/budweiser/paso-a-paso-movil.svg') }}" alt="" srcset="">
                 </div>
@@ -17,7 +17,7 @@
                 <div class="paso-facturas-desk">
                     <img src="{{ asset('assets/budweiser/paso-a-paso3.svg') }}" alt="" srcset="">
                 </div>
-            </div>
+            </div> --}}
             <div class="facturas-codigos-cont">
                 <div class="form-facturas-btn">
                     <button id="show-facturas-btn" class="facturas-codigos-btn">Registrar facturas</button>
