@@ -26,13 +26,3 @@
     </form>
 </div>
 
-<script>
-    document.getElementById('submit_inicio').addEventListener('click', function() {
-        dataLayer.push({
-            'event': 'GAEvent',
-            'event_category': 'Login',
-            'event_action': 'Submit',
-            'event_label': 'Login_submit',
-        });
-    });
-</script>

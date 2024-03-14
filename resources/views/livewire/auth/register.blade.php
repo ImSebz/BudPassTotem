@@ -149,28 +149,3 @@
             wire:loading.attr="disabled">Registrar</button>
     </div>
 </div>
-@if ($errors->any())
-    @script
-        <script>
-            dataLayer.push({
-                'event': 'GAEvent',
-                'event_category': 'Form',
-                'event_action': 'Error',
-                'event_label': {!! json_encode($errors->all()) !!}, // descripción del error
-                'interaction': 'true',
-                'component_name': 'btn_error_form',
-                'campaign_description': 'Budpass',
-            });
-        </script>
-    @endscript
-@endif
-<script>
-    document.getElementById('registrar_usuario').addEventListener('click', function() {
-        dataLayer.push({
-            'event': 'GAEvent',
-            'event_category': 'Login',
-            'event_action': 'Submit',
-            'event_label': 'Login_submit',
-        });
-    });
-</script>

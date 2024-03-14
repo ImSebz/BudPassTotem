@@ -2,24 +2,7 @@
 <html lang="es">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WKTBXXNH');
-    </script>
-    <!-- End Google Tag Manager -->
-
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -44,10 +27,7 @@
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKTBXXNH" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
     <div class="age-confirmation-cont">
         <div class="age-confirmation-info">
             <div class="age-bud-logo">
@@ -90,7 +70,7 @@
                             <a class="" href="{{ route('market') }}">Marketplace</a>
                         </div>
                         <div class="menu-desk-item {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
-                            <a class="" href="{{ route('dashboard') }}">Registrar Compra</a>
+                            <a class="" href="{{ route('dashboard') }}">Registrar Código</a>
                         </div>
                     </div>
                     <div class="menu-desk-item-puntos" id="menu-toggle">
@@ -249,16 +229,6 @@
                     confirmButtonText: 'Continuar'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        dataLayer.push({
-                            'event': 'GAEvent',
-                            'event_category': 'Content',
-                            'event_action': 'button',
-                            'event_label': 'Pop_up_bienvenida',
-                            'interaction': 'true',
-                            'component_name': 'btn_popup_bienvenida',
-                            'element_text': 'btn_continuar_bienvenida',
-                            'campaign_description': 'Budpass'
-                        });
                     }
                 });
 
@@ -320,16 +290,7 @@
         const ageYesButton = document.getElementById('age-yes');
         const checkRecordar = document.getElementById('check_datos_recordados');
         ageYesButton.addEventListener('click', function() {
-            dataLayer.push({
-                'event': 'GAEvent',
-                'event_category': 'Age Gate',
-                'event_action': 'Interaction',
-                'event_label': 'Yes',
-                'interaction': 'False',
-                'component_name': 'Yes',
-                'element_text': 'Yes',
-            });
-
+            
             document.querySelector('.age-confirmation-cont').style.display = 'none';
             localStorage.setItem('ageConfirmed', 'true');
             mostrarPopupBienvenida();
@@ -340,15 +301,6 @@
         });
 
         document.getElementById('age-no').addEventListener('click', function() {
-            dataLayer.push({
-                'event': 'GAEvent',
-                'event_category': 'Age Gate',
-                'event_action': 'Interaction',
-                'event_label': 'No',
-                'interaction': 'False',
-                'component_name': 'No',
-                'element_text': 'No',
-            });
             window.location.href = 'https://www.tapintoyourbeer.com/';
         });
 
@@ -416,65 +368,28 @@
         }
 
         // Registro de códigos, facturas e historial de registros
-        const showFacturasBtn = document.getElementById('show-facturas-btn');
         const showCodigoBtn = document.getElementById('show-codigo-btn');
         const showHistorialBtn = document.getElementById('show-historial-registros-btn');
-        const registroFacturaForm = document.querySelector('.registro-factura-form');
         const registroCodigoForm = document.querySelector('.registro-codigo-form');
         const historialRegistrosForm = document.querySelector('.main-historial-registros-form');
 
-        if (showFacturasBtn && showCodigoBtn && showHistorialBtn && registroFacturaForm && registroCodigoForm &&
+        if (showCodigoBtn && showHistorialBtn && registroCodigoForm &&
             historialRegistrosForm) {
-            showFacturasBtn.addEventListener('click', function() {
-                registroFacturaForm.style.display = 'flex';
-                registroCodigoForm.style.display = 'none';
-                historialRegistrosForm.style.display = 'none';
-                this.classList.remove('secundario-btn');
-                showCodigoBtn.classList.add('secundario-btn');
-                showHistorialBtn.classList.add('secundario-btn');
-            });
-
+            
             showCodigoBtn.addEventListener('click', function() {
-                registroFacturaForm.style.display = 'none';
                 registroCodigoForm.style.display = 'flex';
                 historialRegistrosForm.style.display = 'none';
                 this.classList.remove('secundario-btn');
-                showFacturasBtn.classList.add('secundario-btn');
                 showHistorialBtn.classList.add('secundario-btn');
             });
 
             showHistorialBtn.addEventListener('click', function() {
-                registroFacturaForm.style.display = 'none';
                 registroCodigoForm.style.display = 'none';
                 historialRegistrosForm.style.display = 'flex';
                 this.classList.remove('secundario-btn');
-                showFacturasBtn.classList.add('secundario-btn');
                 showCodigoBtn.classList.add('secundario-btn');
             });
         }
-
-        const premiosBtn = document.getElementById('show-premios-btn');
-        const redencionesBtn = document.getElementById('show-redenciones-btn');
-        const premiosCont = document.querySelector('.premios-cont');
-        const redencionesCont = document.querySelector('.redenciones-premios-cont');
-
-        if (premiosBtn && redencionesBtn && premiosCont && redencionesCont) {
-            premiosBtn.addEventListener('click', function() {
-                premiosCont.style.display = 'flex';
-                redencionesCont.style.display = 'none';
-                this.classList.remove('secundario-btn');
-                redencionesBtn.classList.add('secundario-btn');
-            });
-
-            redencionesBtn.addEventListener('click', function() {
-                premiosCont.style.display = 'none';
-                redencionesCont.style.display = 'flex';
-                this.classList.remove('secundario-btn');
-                premiosBtn.classList.add('secundario-btn');
-            });
-        }
-
-
 
         // Validación de fecha de nacimiento mayor de 18 años
         window.onload = function() {
@@ -507,16 +422,6 @@
                 confirmButtonText: 'ACEPTAR'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dataLayer.push({
-                        'event': 'GAEvent',
-                        'event_category': 'Content',
-                        'event_action': 'button',
-                        'event_label': 'Pup_up_Canje_codigos_Success',
-                        'interaction': 'true',
-                        'component_name': 'btn_aceptar_Canje_codigos_Success',
-                        'element_text': 'Aceptar',
-                        'campaign_description': 'Budpass',
-                    });
                 }
             });
         @endif
@@ -528,28 +433,11 @@
                 confirmButtonText: 'ACEPTAR'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dataLayer.push({
-                        'event': 'GAEvent',
-                        'event_category': 'Content',
-                        'event_action': 'button',
-                        'event_label': 'Pop_up_validacion_facturas',
-                        'interaction': 'true',
-                        'component_name': 'btn_validar_factura',
-                        'element_text': 'btn_registro_factura',
-                        'campaign_description': 'Budpass',
-                    });
                 }
             });
         @endif
 
         @if (session('session-success'))
-            dataLayer.push({
-                'event': 'GAEvent',
-                'event_category': 'Login',
-                'event_action': 'Sucess',
-                'event_label': 'Login_success',
-                'userUid': "{{ Auth::user()->name }}" // user id (string)
-            });
         @endif
 
         @if (session('success-redencion'))
@@ -559,16 +447,7 @@
                 confirmButtonText: 'ACEPTAR'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    dataLayer.push({
-                        'event': 'GAEvent',
-                        'event_category': 'Content',
-                        'event_action': 'button',
-                        'event_label': 'cerrar_redencion_proceso',
-                        'interaction': 'true',
-                        'component_name': 'btn_cerrar_proceso',
-                        'element_text': 'cerrar',
-                        'campaign_description': 'Budpass',
-                    });
+
                 }
             });
         @endif
