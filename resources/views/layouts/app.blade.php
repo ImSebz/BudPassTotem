@@ -101,7 +101,7 @@
                     <a class="" href="{{ route('market') }}">Marketplace</a>
                 </div>
                 <div class="ham-item {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
-                    <a class="" href="{{ route('dashboard') }}">Registrar Compra</a>
+                    <a class="" href="{{ route('dashboard') }}">Registrar Código</a>
                 </div>
                 <div class="ham-item">
                     <a href="#"
