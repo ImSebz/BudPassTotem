@@ -191,6 +191,10 @@
     margin-bottom: 20px;
 }
 
+.btn-modal-premios-redimir {
+    display: none;
+}
+
 .btn-modal-premios-redimir,
 .btn-modal-premios-close,
 .btn-modal-premios-redimir span {
