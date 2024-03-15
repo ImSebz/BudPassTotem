@@ -25,9 +25,10 @@ class RegistroCodigos extends Component
             // 'punto_entrega' => 'required|string'
         ]);
 
-        if (RateLimiter::tooManyAttempts('send-message:'.Auth::user()->id, $perMinute = 5)) {
-            return $this->addError('codigo-bloqueado', 'Oops, demasiados intentos.');
-        } 
+        // if (RateLimiter::tooManyAttempts('send-message:'.Auth::user()->id, $perMinute = 5)) {
+        //     return $this->addError('codigo-bloqueado', 'Oops, demasiados intentos.');
+        // }
+
         RateLimiter::hit('send-message:'.Auth::user()->id);
         
         $codigo = Codigo::where('codigo', 'LIKE', "$this->codigo")->first();
