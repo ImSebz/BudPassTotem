@@ -23,12 +23,12 @@ class RegistroCodigos extends Component
         $this->validate([
             'codigo' => 'required|alpha_num:ascii',
             // 'punto_entrega' => 'required|string'
-        ]);
+        ]); 
 
         // if (RateLimiter::tooManyAttempts('send-message:'.Auth::user()->id, $perMinute = 5)) {
         //     return $this->addError('codigo-bloqueado', 'Oops, demasiados intentos.');
         // }
-
+// asdas
         RateLimiter::hit('send-message:'.Auth::user()->id);
         
         $codigo = Codigo::where('codigo', 'LIKE', "$this->codigo")->first();
@@ -36,7 +36,7 @@ class RegistroCodigos extends Component
         if($codigo && !($user->limite($codigo->referencia->puntos))){
             $this->addError('limite-puntos', 'Opps, alcanzaste el límite de puntos diario (450 puntos).');
             return redirect()->back();
-        } 
+        }  
 
         if ($codigo && $codigo->estado_id){
             $registroCodigo = new RegistroCodigo;
