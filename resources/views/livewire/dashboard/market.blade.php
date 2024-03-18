@@ -134,7 +134,7 @@
                         <div class="destacados-cont-desk" x-on:click="openModalDestacado({{ $destacados[0]->id }})">
                             <img src='{{ asset('assets/premios/destacado-jueves-desk.png') }}' alt="">
                         </div>
-                        <div class="destacados-cont-desk" x-on:click="openModalDestacado({{ $destacados[1]->id }})">
+                        {{-- <div class="destacados-cont-desk" x-on:click="openModalDestacado({{ $destacados[1]->id }})">
                             <img src='{{ asset('assets/premios/destacado-viernes-desk.png') }}' alt="">
                         </div>
                         <div class="destacados-cont-desk" x-on:click="openModalDestacado({{ $destacados[2]->id }})">
@@ -142,7 +142,7 @@
                         </div>
                         <div class="destacados-cont-desk" x-on:click="openModalDestacado({{ $destacados[3]->id }})">
                             <img src='{{ asset('assets/premios/destacado-domingo-desk.png') }}' alt="">
-                        </div>
+                        </div> --}}
                     @endif
                 </div>
 
