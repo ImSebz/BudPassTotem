@@ -76,7 +76,7 @@
                                     <img id="premioModalImg" src="" alt="" class="custom-modal-img">
                                 </div>
                                 <p id="premioModalDesc" class="custom-modal-desc"></p>
-                                <p id="premioModalPuntos" class="custom-modal-puntos"></p>
+                                {{-- <p id="premioModalPuntos" class="custom-modal-puntos"></p> --}}
                                 <div class="btn-modal-premios">
                                     <button type="button" wire:loading.class="redencion-loading" wire:click="redimir"
                                         wire:target="redimir" class="btn-modal-premios-redimir"
@@ -225,7 +225,7 @@
                                         class="custom-modal-img">
                                 </div>
                                 <p id="premioModalDescDesktop" class="custom-modal-desc"></p>
-                                <p id="premioModalPuntosDesktop" class="custom-modal-puntos"></p>
+                                {{-- <p id="premioModalPuntosDesktop" class="custom-modal-puntos"></p> --}}
                                 <div class="btn-modal-premios">
                                     <button type="button" wire:loading.class="redencion-loading"
                                         wire:click="redimir" wire:target="redimir" class="btn-modal-premios-redimir"
@@ -336,7 +336,7 @@
         document.getElementById('premioModalLabel').textContent = premio.nombre;
         document.getElementById('premioModalImg').src = '{{ asset('assets/premios/') }}/' + premio.foto;
         document.getElementById('premioModalDesc').textContent = premio.descripcion;
-        document.getElementById('premioModalPuntos').textContent = `Puntos requeridos: ${premio.puntos}`;
+        //document.getElementById('premioModalPuntos').textContent = `Puntos requeridos: ${premio.puntos}`;
 
         const premioModalBtn = document.getElementById('premioModalBtn');
         const redimirText = document.getElementById('redimirText');
@@ -364,7 +364,7 @@
         document.getElementById('premioModalLabelDesktop').textContent = premio.nombre;
         document.getElementById('premioModalImgDesktop').src = '{{ asset('assets/premios/') }}/' + premio.foto;
         document.getElementById('premioModalDescDesktop').textContent = premio.descripcion;
-        document.getElementById('premioModalPuntosDesktop').textContent = `Puntos requeridos: ${premio.puntos}`;
+        //document.getElementById('premioModalPuntosDesktop').textContent = `Puntos requeridos: ${premio.puntos}`;
 
 
         if ({{ $puntosUser }} < premio.puntos) {
