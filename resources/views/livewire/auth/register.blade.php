@@ -7,9 +7,9 @@
         <p class="sub-title-registro">
             1. Crea tu cuenta.
         </p>
-        <p class="sub-title-registro">2. Registra tus compras de Budweiser.</p>
+        <p class="sub-title-registro">2. Registra tus códigos Budweiser.</p>
         <p class="sub-title-registro">3. Acumula puntos.</p>
-        <p class="sub-title-registro"> 4. Redime tus puntos por entradas, producto, prendas y accesorios exclusivos de la
+        <p class="sub-title-registro"> 4. Participa en el ranking por entradas, producto, prendas y accesorios exclusivos de la
             marca.</p>
     </div>
     <div class="input-cont">
