@@ -311,7 +311,7 @@
 
 .btn-registrar button {
     height: 48px;
-    width: 100%;
+    width: 80%;
     background: var(--primary-red);
     color: #fff;
     border-radius: 6px;
